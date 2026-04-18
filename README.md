@@ -47,6 +47,21 @@ npm run dev
 VITE_API_BASE_URL=http://localhost:8000
 ```
 
+## Docker 与自动部署
+
+- Dockerfile: `Dockerfile`
+- Nginx 配置: `nginx.conf`
+- 生产编排: `docker-compose.prod.yml`
+- GitHub Actions: `.github/workflows/deploy.yml`
+- Secrets 配置说明: `GITHUB_SECRETS_SETUP.md`
+
+基础命令：
+
+```bash
+docker build --build-arg VITE_API_BASE_URL=http://your-server-ip:8000 -t info-max:latest .
+docker run -d --name info-max -p 80:80 info-max:latest
+```
+
 ## 架构说明
 
 - 页面层只负责状态组合和交互编排

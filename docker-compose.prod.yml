@@ -1,0 +1,7 @@
+services:
+  info-max:
+    image: ${DOCKERHUB_NAMESPACE:-jeason1234}/info-max:${IMAGE_TAG:-latest}
+    container_name: info-max
+    restart: unless-stopped
+    ports:
+      - "80:80"
